@@ -1,0 +1,738 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Poppins',sans-serif;
+
+  background:
+  linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+
+  overflow-x:hidden;
+
+  text-align:center;
+
+  color:#111;
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+
+  position:fixed;
+
+  bottom:-50px;
+
+  font-size:30px;
+
+  animation:float 8s linear infinite;
+
+  z-index:1;
+}
+
+.heart:nth-child(1){
+  left:10%;
+  animation-duration:6s;
+}
+
+.heart:nth-child(2){
+  left:30%;
+  animation-duration:8s;
+}
+
+.heart:nth-child(3){
+  left:50%;
+  animation-duration:7s;
+}
+
+.heart:nth-child(4){
+  left:70%;
+  animation-duration:9s;
+}
+
+.heart:nth-child(5){
+  left:90%;
+  animation-duration:6s;
+}
+
+@keyframes float{
+
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+
+}
+
+/* ================= HEADER ================= */
+
+.header{
+
+  padding:50px 20px;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.header h1{
+
+  font-family:'Pacifico',cursive;
+
+  font-size:65px;
+
+  color:#111;
+
+  text-shadow:
+  0 0 20px white,
+  0 0 40px pink;
+
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+  from{
+    text-shadow:0 0 10px white;
+  }
+
+  to{
+    text-shadow:
+    0 0 20px white,
+    0 0 40px pink;
+  }
+
+}
+
+.header p{
+
+  margin-top:20px;
+
+  font-size:22px;
+
+  line-height:1.7;
+
+  font-weight:500;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+
+  margin-top:35px;
+}
+
+.profile img{
+
+  width:230px;
+  height:230px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:6px solid white;
+
+  box-shadow:
+  0 0 25px white,
+  0 0 50px pink;
+
+  transition:0.5s;
+}
+
+.profile img:hover{
+
+  transform:scale(1.05);
+}
+
+.profile h2{
+
+  margin-top:20px;
+
+  font-size:40px;
+
+  font-family:'Pacifico',cursive;
+}
+
+/* ================= BUTTON ================= */
+
+.btn,
+.memory-btn,
+.cut-btn{
+
+  margin-top:25px;
+
+  padding:15px 35px;
+
+  border:none;
+
+  border-radius:40px;
+
+  background:
+  linear-gradient(45deg,#ff4081,#ff80ab);
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.4s;
+
+  box-shadow:
+  0 0 20px rgba(255,105,180,0.5);
+}
+
+.btn:hover,
+.memory-btn:hover,
+.cut-btn:hover{
+
+  transform:
+  scale(1.1)
+  rotate(2deg);
+
+  box-shadow:
+  0 0 30px white,
+  0 0 50px pink;
+}
+
+/* ================= SECTION TITLES ================= */
+
+h2,h3{
+
+  font-family:'Pacifico',cursive;
+
+  letter-spacing:2px;
+}
+
+/* ================= CHOICE ================= */
+
+.choice-section{
+
+  margin-top:70px;
+}
+
+.choice-section h3{
+
+  font-size:38px;
+
+  margin-bottom:25px;
+}
+
+/* ================= GIFTS ================= */
+
+.gift-section{
+
+  margin-top:70px;
+}
+
+.gift-section h2{
+
+  font-size:45px;
+
+  margin-bottom:25px;
+}
+
+.gift-box{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:35px;
+
+  flex-wrap:wrap;
+}
+
+.gift{
+
+  font-size:75px;
+
+  cursor:pointer;
+
+  transition:0.4s;
+}
+
+.gift:hover{
+
+  transform:
+  scale(1.3)
+  rotate(10deg);
+}
+
+/* ================= MUSIC ================= */
+
+.music-section{
+
+  margin-top:70px;
+}
+
+.music-section h2{
+
+  font-size:42px;
+}
+
+audio{
+
+  margin-top:20px;
+}
+
+/* ================= MEMORY BUTTON ================= */
+
+.memory-open-section{
+
+  margin-top:80px;
+}
+
+.memory-btn{
+
+  font-size:22px;
+}
+
+/* ================= MEMORY POPUP ================= */
+
+.memory-popup{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.8);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:3000;
+}
+
+.memory-box{
+
+  width:90%;
+
+  max-width:1200px;
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  background:
+  linear-gradient(135deg,#fff,#ffe6f0);
+
+  padding:30px;
+
+  border-radius:25px;
+
+  animation:memoryOpen 0.6s ease;
+
+  box-shadow:
+  0 0 30px pink;
+}
+
+@keyframes memoryOpen{
+
+  from{
+    transform:scale(0.5);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+
+}
+
+.close-memory{
+
+  float:right;
+
+  font-size:28px;
+
+  cursor:pointer;
+}
+
+.memory-box h2{
+
+  font-size:45px;
+}
+
+.memory-gallery{
+
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:25px;
+
+  margin-top:30px;
+}
+
+.memory-card{
+
+  width:220px;
+
+  background:white;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  transition:0.5s;
+
+  box-shadow:
+  0 0 15px rgba(0,0,0,0.2);
+}
+
+.memory-card:hover{
+
+  transform:
+  translateY(-10px)
+  scale(1.05);
+
+  box-shadow:
+  0 0 25px pink;
+}
+
+.memory-card img{
+
+  width:100%;
+
+  height:260px;
+
+  object-fit:cover;
+}
+
+.memory-card p{
+
+  padding:15px;
+
+  font-size:18px;
+
+  font-weight:600;
+}
+
+/* ================= POPUP ================= */
+
+.popup{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.7);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:1000;
+}
+
+.diary{
+
+  width:360px;
+
+  background:#fff8dc;
+
+  padding:35px;
+
+  border-radius:25px;
+
+  color:#444;
+
+  box-shadow:0 0 30px pink;
+
+  animation:popupOpen 0.5s ease;
+}
+
+@keyframes popupOpen{
+
+  from{
+    transform:scale(0.5);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+
+}
+
+.diary h2{
+
+  font-size:32px;
+
+  color:#ff4081;
+}
+
+.diary p{
+
+  margin-top:15px;
+
+  font-size:20px;
+
+  line-height:1.8;
+
+  font-weight:500;
+}
+
+.close-btn{
+
+  float:right;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* ================= BALLOONS ================= */
+
+#balloon-container{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  pointer-events:none;
+}
+
+.balloon{
+
+  position:absolute;
+
+  bottom:-100px;
+
+  font-size:40px;
+
+  animation:fly 6s linear forwards;
+}
+
+@keyframes fly{
+
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+
+}
+
+/* ================= CAKE POPUP ================= */
+
+.cake-popup{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.8);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:2000;
+}
+
+.cake-box{
+
+  width:360px;
+
+  background:
+  linear-gradient(135deg,#fff,#ffe4ec);
+
+  padding:30px;
+
+  border-radius:25px;
+
+  text-align:center;
+
+  box-shadow:0 0 30px pink;
+}
+
+.close-cake{
+
+  float:right;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+.cake-box h2{
+
+  font-size:38px;
+
+  color:#ff1493;
+}
+
+.cake{
+
+  width:180px;
+
+  height:120px;
+
+  background:#ff69b4;
+
+  margin:40px auto;
+
+  border-radius:15px;
+
+  position:relative;
+
+  box-shadow:0 0 20px #ff69b4;
+
+  transition:1s;
+}
+
+.cream{
+
+  width:100%;
+
+  height:25px;
+
+  background:white;
+
+  border-radius:15px 15px 0 0;
+}
+
+.candle{
+
+  width:15px;
+
+  height:50px;
+
+  background:orange;
+
+  position:absolute;
+
+  top:-45px;
+
+  left:82px;
+
+  border-radius:5px;
+}
+
+.flame{
+
+  width:18px;
+
+  height:18px;
+
+  background:yellow;
+
+  border-radius:50%;
+
+  position:absolute;
+
+  top:-15px;
+
+  left:-2px;
+
+  animation:flame 0.5s infinite alternate;
+}
+
+@keyframes flame{
+
+  from{
+    transform:scale(1);
+  }
+
+  to{
+    transform:scale(1.3);
+  }
+
+}
+
+.cut{
+
+  animation:cutCake 1s forwards;
+}
+
+@keyframes cutCake{
+
+  0%{
+    transform:rotate(0deg);
+  }
+
+  30%{
+    transform:rotate(-5deg);
+  }
+
+  60%{
+    transform:rotate(5deg);
+  }
+
+  100%{
+    transform:scale(0.9);
+    opacity:0.7;
+  }
+
+}
+
+#cakeMessage{
+
+  margin-top:20px;
+
+  font-size:20px;
+
+  font-weight:bold;
+
+  color:#ff1493;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+  margin-top:70px;
+
+  padding:20px;
+
+  background:
+  rgba(255,255,255,0.3);
+
+  font-weight:600;
+}
