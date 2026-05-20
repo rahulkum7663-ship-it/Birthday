@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday</title>
+
+    <!-- Beautiful Fonts -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Floating Hearts -->
+
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💞</div>
+
+    <!-- Header -->
+
+    <div class="header">
+      <h1>🎂 Happy Birthday 🎉</h1>
+
+      <p>Wishing you happiness, smiles, love and success forever ✨</p>
+
+      <div class="profile">
+        <img src="mistu.jpg" alt="Profile" />
+
+        <h2>🌸 Bhutki 🌸</h2>
+      </div>
+
+      <button class="btn">✨ Best Wishes ✨</button>
+    </div>
+
+    <!-- Choice -->
+
+    <div class="choice-section">
+      <h3>Choose Your Favorite ❤️</h3>
+
+      <button class="btn">🌹 Rose</button>
+
+      <button class="btn">🌻 Sunflower</button>
+
+      <button class="btn">💖 Heart</button>
+    </div>
+
+    <!-- Gifts -->
+
+    <div class="gift-section">
+      <h2>🎁 Birthday Gifts 🎁</h2>
+
+      <div class="gift-box">
+        <div class="gift" id="cakeBtn">🎂</div>
+
+        <div class="gift">🎈</div>
+
+        <div class="gift">🎁</div>
+
+        <div class="gift">💝</div>
+      </div>
+    </div>
+
+    <!-- Music -->
+
+    <div class="music-section">
+      <h2>🎵 Birthday Music 🎵</h2>
+
+      <audio controls>
+        <source src="chaandni.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!-- MEMORY BUTTON -->
+
+    <div class="memory-open-section">
+      <button id="openMemoryBtn" class="memory-btn">
+        📸 Open Best Memories 💖
+      </button>
+    </div>
+
+    <!-- MEMORY POPUP -->
+
+    <div class="memory-popup" id="memoryPopup">
+      <div class="memory-box">
+        <span id="closeMemory" class="close-memory"> ❌ </span>
+
+        <h2>📸 Best Memories 📸</h2>
+
+        <div class="memory-gallery">
+          <!-- 20 Photos -->
+
+          <script>
+            for (let i = 1; i <= 20; i++) {
+              document.write(`
+              <div class="memory-card">
+                <img src="mistu.jpg">
+                <img src="IMG-20250130-WA0015.jpg">
+                <img src="IMG-20250130-WA0010.jpg">
+                <img src="IMG-20250130-WA0013.jpg">
+                <img src="IMG-20250219-WA0013.jpg">
+                <img src="IMG-20250219-WA0016.jpg">
+                <img src="IMG-20250319-WA0012.jpg">
+                <img src="IMG-20250710-WA0010.jpg"><img src="IMG-20250710-WA0013.jpg">
+                <img src="IMG-20250710-WA0014.jpg">
+                <img src="IMG-20250710-WA0052.jpg">
+                <img src="IMG-20250710-WA0054.jpg">
+                <p>✨ Beautiful Memory ${i}</p>
+              </div>
+            `);
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- Celebrate -->
+
+    <div style="margin-top: 60px">
+      <button class="btn" id="celebrateBtn">🎈 Celebrate Birthday 🎉</button>
+    </div>
+
+    <!-- Balloons -->
+
+    <div id="balloon-container"></div>
+
+    <!-- Popup -->
+
+    <div class="popup" id="popup">
+      <div class="diary">
+        <span class="close-btn" id="closePopup"> ❌ </span>
+
+        <h2>💌 Special Message 💌</h2>
+
+        <p id="popupMessage">Happy Birthday 🌸</p>
+      </div>
+    </div>
+
+    <!-- Cake Popup -->
+
+    <div class="cake-popup" id="cakePopup">
+      <div class="cake-box">
+        <span class="close-cake" id="closeCake"> ❌ </span>
+
+        <h2>🎂 Birthday Cake 🎂</h2>
+
+        <div class="cake">
+          <div class="cream"></div>
+
+          <div class="candle">
+            <div class="flame"></div>
+          </div>
+        </div>
+
+        <button class="cut-btn" id="cutCakeBtn">🔪 Cut Cake</button>
+
+        <p id="cakeMessage"></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer>Made With ❤️ For Birthday Celebration 🎉</footer>
+
+    <script>
+      // ================= POPUP =================
+
+      const popup = document.getElementById("popup");
+
+      const popupMessage = document.getElementById("popupMessage");
+
+      const closePopup = document.getElementById("closePopup");
+
+      function openPopup(message) {
+        popup.style.display = "flex";
+
+        popupMessage.innerHTML = message;
+      }
+
+      closePopup.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      // ================= BALLOONS =================
+
+      const balloonContainer = document.getElementById("balloon-container");
+
+      function createBalloons() {
+        for (let i = 0; i < 50; i++) {
+          const balloon = document.createElement("div");
+
+          balloon.classList.add("balloon");
+
+          balloon.innerHTML = "🎈";
+
+          balloon.style.left = Math.random() * 100 + "vw";
+
+          balloon.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+          balloonContainer.appendChild(balloon);
+
+          setTimeout(() => {
+            balloon.remove();
+          }, 6000);
+        }
+      }
+
+      // ================= WISH =================
+
+      const wishButton = document.querySelectorAll(".btn")[0];
+
+      wishButton.addEventListener("click", () => {
+        openPopup(`
+        🌸 Happy Birthday Bhutki 🌸
+        <br><br>
+
+        May your smile always
+        shine like stars ✨
+        <br><br>
+
+        Stay happy forever 💖
+      `);
+      });
+
+      // ================= CHOICE =================
+
+      const choiceButtons = document.querySelectorAll(".choice-section .btn");
+
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.innerText.includes("Rose")) {
+            openPopup(`
+            🌹 Rose Selected
+            <br><br>
+
+            A flower full of love 💖
+          `);
+          } else if (button.innerText.includes("Sunflower")) {
+            openPopup(`
+            🌻 Sunflower Selected
+            <br><br>
+
+            Bright like your smile ✨
+          `);
+          } else {
+            openPopup(`
+            💖 Heart Selected
+            <br><br>
+
+            Sitaron se bhari raat pasand hai,
+            Mujhe tumhari kahi har baat pasand hai,
+            Tareef ke kabil hai tumhari Zulfen bhi,
+            Par mujhe to jayda tumhari Aankhe pasand hai. 💕
+          `);
+          }
+        });
+      });
+
+      // ================= CELEBRATE =================
+
+      const celebrateBtn = document.getElementById("celebrateBtn");
+
+      celebrateBtn.addEventListener("click", () => {
+        createBalloons();
+
+        openPopup(`
+        🎉 HAPPY BIRTHDAY 🎉
+        <br><br>
+
+        Today is your special day 💖
+        <br><br>
+
+        Keep smiling forever 🌸
+      `);
+      });
+
+      // ================= MEMORY POPUP =================
+
+      const openMemoryBtn = document.getElementById("openMemoryBtn");
+
+      const memoryPopup = document.getElementById("memoryPopup");
+
+      const closeMemory = document.getElementById("closeMemory");
+
+      openMemoryBtn.addEventListener("click", () => {
+        memoryPopup.style.display = "flex";
+      });
+
+      closeMemory.addEventListener("click", () => {
+        memoryPopup.style.display = "none";
+      });
+
+      // ================= CAKE =================
+
+      const cakeBtn = document.getElementById("cakeBtn");
+
+      const cakePopup = document.getElementById("cakePopup");
+
+      const closeCake = document.getElementById("closeCake");
+
+      const cutCakeBtn = document.getElementById("cutCakeBtn");
+
+      const cake = document.querySelector(".cake");
+
+      const cakeMessage = document.getElementById("cakeMessage");
+
+      cakeBtn.addEventListener("click", () => {
+        cakePopup.style.display = "flex";
+      });
+
+      closeCake.addEventListener("click", () => {
+        cakePopup.style.display = "none";
+      });
+
+      cutCakeBtn.addEventListener("click", () => {
+        cake.classList.add("cut");
+
+        cakeMessage.innerHTML = `
+        🎉 Cake Successfully Cut 🎂
+        <br><br>
+
+        Happy Birthday Bhutki 💖
+      `;
+
+        createBalloons();
+      });
+    </script>
+  </body>
+</html>
